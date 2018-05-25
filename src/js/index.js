@@ -5,4 +5,4 @@
 require('../css/index.less');
 
 
-require('../app');
+require('../main');

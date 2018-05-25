@@ -18,9 +18,7 @@
     1. bower install vue-router --save
 
 
-
 ### webpack插件
-``
 
 1. **html-webpack-plugin配置**
 
