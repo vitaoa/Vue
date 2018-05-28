@@ -105,7 +105,6 @@
 <style>
 /*scoped属性导致css仅对当前组件生效，而html绑定渲染出的内容可以理解为是子组件的内容，子组件不会被加上对应的属性，所以不会应用css.
 解决的话把scoped属性去掉就行了*/
-	@import url("../css/markdown-github.css");
 	.ArticleSection {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;

@@ -5,5 +5,7 @@ for (let i = 0; i < 10; i++) {
         console.log(i);
     };
 }
-a[6](); // 6
+a[6]();
 
+var show = item =>item;
+console.log(show('1234567'));

@@ -6,7 +6,7 @@ import App from '@/app';
 import PostList from '@/components/PostList';
 import UserInfo from '@/components/UserInfo';
 import Article from '@/components/Article';
-import SideBar from '@/components/SideBar'
+import SideBar from '@/components/SideBar';
 
 const router=new VueRouter({
     routes: [

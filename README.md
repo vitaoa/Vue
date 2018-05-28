@@ -1,4 +1,4 @@
-### 软件包管理器Bower
+## 软件包管理器Bower
     
 1. bower init
 
@@ -18,7 +18,7 @@
     1. bower install vue-router --save
 
 
-### webpack插件
+## webpack插件
 
 1. **html-webpack-plugin配置**
 
@@ -62,9 +62,9 @@
     ````
 
 
-### 基本依赖
+## vue文件编译
     
-1. npm i vue-loader vue-template-compiler -D 
+1. 安装依赖：npm i vue-loader vue-template-compiler -D 
 
     ```
     最新版本的vue-loader（^15.0.10）需要在webapck config文件中设置VueLoaderPlugin插件，
@@ -74,32 +74,66 @@
         new VueLoaderPlugin()  
     ],
     ```
+1. 解说：vue-loader是一个webpack的loader，可以将vue文件转换为JS模块
+  
+
+## babel的几种使用方法
+1. 使用webStorm自带的file watcher中的babel自动编译
     
-1. npm i babel-loader babel-preset-env -D
-
-    ````
-    创建一个用于babel调用的文件，名为.babelrc：
-    {
-    	"presets": [
-    		"env"
-    	],
-    	"plugins": []
-    }
-    ````
-    这里配置的env需要babel-preset-env这个模块；
+   **建议安装在本地：npm install --save-dev babel-cli，用于命令行转码**，可以单独编译es6，babel-loader及其规则rules可以去掉。
+   
+   需要设置的地方有三个，Program，Arguments,  Output paths to refresh
+   
+   1. Program：（如果是全局安装babel-cli的，这里默认就好了。如果是项目安装的，就要右边的...到项目的node_modules文件夹中，找到.bin文件夹下面的babel文件，点ok就可以了）
+        node_modules\.bin\babel.cmd
+   1. Arguments：默认为： $FilePathRelativeToProjectRoot$ --out-dir dist --source-maps --presets env 
+   1. Output paths to refresh: 默认为：dist\$FileDirRelativeToProjectRoot$\$FileNameWithoutExtension$.js:dist\$FileDirRelativeToProjectRoot$\$FileNameWithoutExtension$.js.map
     
-    或者直接在webpack配置文件里面加上rules
+   1. 填坑：
+        1. 编译其实并没有进行，而是原样输出：
+        
+            安装：babel-preset-env，然后创建一个用于babel调用的文件，名为.babelrc：
+            ````
+            {
+                "presets": [
+                    "env"
+                ]
+            }
+            ````
+        
+1. 使用webpack的loader
 
-    ````
-    test:/\.js$/,
-    loader: 'babel-loader',
-    options: {
-        presets: [
-            ['env']
-        ]
-    }
-    ````
+    npm i babel-loader babel-preset-env -D
+    
+        ````
+        创建一个用于babel调用的文件，名为.babelrc：
+        {
+            "presets": [
+                "env"
+            ],
+            "plugins": []
+        }
+        ````
+        这里配置的env需要babel-preset-env这个模块；
+        
+        或者直接在webpack配置文件里面加上rules
+    
+        ````
+        test:/\.js$/,
+        loader: 'babel-loader',
+        options: {
+            presets: [
+                ['env']
+            ]
+        }
+        ````
+
+1. 使用npm的scripts(推荐)
+
+    ```
+    "babel":"babel --watch ./src/babel -d ./app/js -s"
+    ```
 
 
-### 路由配置
+## vue路由配置
 
