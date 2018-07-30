@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssPlugin = require('mini-css-extract-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
+// const babelpolyfill = require("babel-polyfill");
 
 let basePath = path.resolve('app');
 

@@ -5,6 +5,7 @@
     "main": "webpack vue",
     "devDependencies": {
         "babel-cli": "^6.26.0",
+        "babel-plugin-transform-runtime": "^6.23.0",
         "babel-preset-env": "^1.7.0",
         "clean-webpack-plugin": "^0.1.19",
         "copy-webpack-plugin": "^4.5.1",
@@ -24,10 +25,12 @@
     "scripts": {
         "run": "webpack --mode development",
         "build": "webpack --mode production",
-        "babel":"babel --watch ./src/babel -d ./app/js -s",
+        "babel": "babel --watch ./src/babel -d ./app/js -s",
         "dev": "webpack --mode development --watch"
     },
     "author": "",
     "license": "ISC",
-    "dependencies": {}
+    "dependencies": {
+        "babel-runtime": "^6.26.0"
+    }
 }

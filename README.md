@@ -134,6 +134,32 @@
     "babel":"babel --watch ./src/babel -d ./app/js -s"
     ```
 
+## babel的拓展包
+1. **babel-polyfill**
+    
+    Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。
+    
+    配置步骤:
+    1. 打开命令行键入 npm install --save-dev babel-polyfill 安装polyfill
+    2. 在webpack.config.js中最上面写上var babelpolyfill = require("babel-polyfill");
+    3. 在自己的项目js文件中最开头写上import "babel-polyfill";
+
+1. **transform-runtime**
+    1. 安装babel插件：npm install --save-dev babel-plugin-transform-runtime 、npm install --save babel-runtime
+    2. 配置.babelrc文件
+    
+        ````    
+          "plugins": [
+            [
+              "transform-runtime", {
+                "polyfill": false,
+                "regenerator": true
+              }
+            ]
+          ]
+        ````
+1. **polyfill与runtime的区别**
+
 
 ## vue路由配置
 
