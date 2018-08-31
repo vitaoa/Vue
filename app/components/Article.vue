@@ -1,7 +1,7 @@
 <template>
 	<div class="ArticleSection">
+        <loading></loading>
 	    <div class="loading" v-if="loading">
-	        Loading...
 	    </div>
 	    <div class="article" v-else>
 			<h1>{{post.title}}</h1>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+    import loading from '@/components//loading.vue';
 	export default {
 		name: 'Article',
 	    data () {
@@ -98,7 +99,10 @@
 			$route(){
 				this.getData();
 			}
-		}
+		},
+        components: {
+            loading,
+        }
 	}
 </script>
 

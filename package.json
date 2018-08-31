@@ -26,7 +26,7 @@
         "run": "webpack --mode development",
         "build": "webpack --mode production",
         "babel": "babel --watch ./src/babel -d ./app/js -s",
-        "dev": "webpack --mode development --watch"
+        "dev": "webpack --mode development --watch --open"
     },
     "author": "",
     "license": "ISC",
